@@ -77,5 +77,6 @@ module.exports = {
     Comment,
     Role,
     Category,
-    Tag
+    Tag,
+    Permission
  };
