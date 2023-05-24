@@ -12,10 +12,10 @@ Comment.init(
             autoIncrement:true
         },
         comment_text: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(1000),
             allowNull: false,
             validate: {
-                len: [1]
+                len: [1, 1000]
             }
         },
         user_id: {
