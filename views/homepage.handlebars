@@ -1,9 +1,9 @@
 
 <h1>Welcome to the Homepage</h1>
 
-{{#each posts}}
+{{#each posts as |post|}}
   <div>
-    <h2>{{title}}</h2>
-    <p>{{content}}</p>
+    <h2>{{this.title}}</h2>
+    <p>{{this.content}}</p>
   </div>
 {{/each}}
