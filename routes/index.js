@@ -8,7 +8,9 @@ const roleRoutes = require('./api/roleRoutes');
 const postRoutes = require('./api/postRoutes');
 const categoryRoutes = require('./api/categoryRoutes');
 const commentRoutes = require('./api/commentRoutes');
+const homepageController = require('../controllers/homepageController');
 
+router.get('/', homepageController.renderHomepage);
 router.use('/users', userRoutes);
 router.use('/tags', tagRoutes);
 router.use('/roles', roleRoutes);
