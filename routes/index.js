@@ -10,9 +10,11 @@ const categoryRoutes = require('./api/categoryRoutes');
 const commentRoutes = require('./api/commentRoutes');
 const homepageController = require('../controllers/homepageController');
 const signupRoutes = require('./signup');
-//const dashboardRoutes = require('./dashboardRoutes');
+const dashboardRoutes = require('./dashboard');
+const loginRoutes = require('./login');
 
-router.get('/', homepageController.renderHomepage);
+
+
 //router.get('/partials/nav', homepageController.renderNav);
 router.use('/users', userRoutes);
 router.use('/tags', tagRoutes);
@@ -21,7 +23,10 @@ router.use('/posts', postRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/comments', commentRoutes);
 router.use('/signup', signupRoutes);
-//router.use('/dashboard', dashboardRoutes);
+router.use('/dashboard', dashboardRoutes);
+router.use('/login', loginRoutes);
+
+router.get('/', homepageController.renderHomepage);
 
 module.exports = router;
 // module.exports = {

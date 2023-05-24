@@ -6,4 +6,5 @@ module.exports = {
     categoryController: require('./categoryController'),
     tagController: require('./tagController'),
     permissionController: require('./permissionController')
+
   };

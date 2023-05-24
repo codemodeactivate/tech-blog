@@ -7,6 +7,8 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     // Only logged-in users can access this route
     res.render('dashboard');
+
+    
 });
 
 module.exports = router;
