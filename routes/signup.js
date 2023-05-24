@@ -1,12 +1,14 @@
+const express = require('express');
+const router = express.Router();
 const { User } = require('../models');
 
 // Render the sign up page
-router.get('/signup', (req, res) => {
+router.get('/', (req, res) => {
     res.render('signup');
 });
 
 // Handle sign up form submission
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newUser = await User.create(req.body);
         req.session.user_id = newUser.id;
@@ -16,3 +18,5 @@ router.post('/signup', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+module.exports = router;
