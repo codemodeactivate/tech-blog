@@ -7,6 +7,6 @@ router.get('/', (req, res) => {
     res.render('login');
 });
 
-router.post('/login', loginHandler);
+router.post('/', loginHandler);
 
 module.exports = router;
