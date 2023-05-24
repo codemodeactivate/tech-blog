@@ -12,7 +12,7 @@ const homepageController = require('../controllers/homepageController');
 const signupRoutes = require('./signup');
 const dashboardRoutes = require('./dashboard');
 const loginRoutes = require('./login');
-
+const newPostRoutes = require('./new-post');
 
 
 //router.get('/partials/nav', homepageController.renderNav);
@@ -25,6 +25,7 @@ router.use('/comments', commentRoutes);
 router.use('/signup', signupRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/login', loginRoutes);
+router.use('/new-post', newPostRoutes);
 
 router.get('/', homepageController.renderHomepage);
 
