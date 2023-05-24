@@ -9,6 +9,8 @@ const postRoutes = require('./api/postRoutes');
 const categoryRoutes = require('./api/categoryRoutes');
 const commentRoutes = require('./api/commentRoutes');
 const homepageController = require('../controllers/homepageController');
+const withAuth = require('../utils/auth');
+
 
 router.get('/', homepageController.renderHomepage);
 //router.get('/partials/nav', homepageController.renderNav);
@@ -18,6 +20,7 @@ router.use('/roles', roleRoutes);
 router.use('/posts', postRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/comments', commentRoutes);
+router.use('/signup', homepageController.renderSignup);
 
 
 module.exports = router;
