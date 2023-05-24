@@ -1,4 +1,5 @@
 const { Post } = require('../models');
+const slugify = require('slugify');
 
 module.exports = {
 
@@ -22,12 +23,30 @@ module.exports = {
 
     createPost: async (req, res, next) => {
         try {
-            const newPost = await Post.create(req.body);
-            res.json(newPost);
+          const { title, post_content } = req.body;
+          if (!req.user) {
+            return res.status(401).json({ error: 'User not authenticated.' });
+          }
+
+          const slug = slugify(title, {
+            replacement: '-',
+            lower: true,
+            strict: true
+          });
+          const user_id = req.user ? req.user.id : undefined;
+          const newPost = await Post.create({
+            title,
+            post_url: slug,
+            slug,
+            post_content,
+            user_id: req.user.id // Assuming you have a logged-in user and req.user contains the user information
+          });
+
+          res.json(newPost);
         } catch (err) {
-            next(err);
+          next(err);
         }
-    },
+      },
 
     updatePost: async (req, res, next) => {
         try {

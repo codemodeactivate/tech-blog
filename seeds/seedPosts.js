@@ -10,6 +10,7 @@ const seedPosts = async (numPosts = 10) => {
             post_content: faker.lorem.paragraph(),
             user_id: Math.floor(Math.random() * 10) + 1,
             post_url: faker.internet.url(),
+            slug: faker.lorem.slug(),
         });
     }
 

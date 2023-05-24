@@ -22,6 +22,12 @@ Post.init(
                 isURL: true
             }
         },
+        slug: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        
         post_content: {
             type: DataTypes.TEXT,
             allowNull: false
