@@ -11,6 +11,7 @@ const commentRoutes = require('./api/commentRoutes');
 const homepageController = require('../controllers/homepageController');
 
 router.get('/', homepageController.renderHomepage);
+//router.get('/partials/nav', homepageController.renderNav);
 router.use('/users', userRoutes);
 router.use('/tags', tagRoutes);
 router.use('/roles', roleRoutes);
