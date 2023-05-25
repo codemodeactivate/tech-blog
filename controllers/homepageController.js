@@ -10,7 +10,11 @@ exports.renderHomepage = async (req, res, next) => {
             if (err) return next(err);
 
             // Pass the navigation bar HTML to the main render call
-            res.render("homepage", { posts: plainPosts, nav: navHtml });
+            res.render("dashboard", {
+                isLoggedIn: req.session.logged_in = true,
+                posts: plainPosts,
+                 nav: navHtml
+                });
         });
     } catch (err) {
         next(err);

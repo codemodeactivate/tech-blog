@@ -7,4 +7,5 @@ module.exports = {
     tagController: require('./tagController'),
     permissionController: require('./permissionController'),
     dashboardController: require('./dashboardController'),
+    homepageController: require('./homepageController'),
   };

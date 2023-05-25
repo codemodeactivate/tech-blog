@@ -6,7 +6,7 @@ exports.renderDashboard = async (req, res, next) => {
       const plainPosts = posts.map((post) => post.get({ plain: true }));
 
       res.render("dashboard", {
-          isLoggedIn: req.session.isLoggedIn,
+          isLoggedIn: req.session.logged_in = true,
           posts: plainPosts
       });
   } catch (err) {
