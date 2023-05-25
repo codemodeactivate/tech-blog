@@ -23,23 +23,16 @@ module.exports = {
 
     createPost: async (req, res, next) => {
         try {
+          // Retrieve the post data from the request body
           const { title, post_content } = req.body;
-          if (!req.user) {
-            return res.status(401).json({ error: 'User not authenticated.' });
-          }
 
-          const slug = slugify(title, {
-            replacement: '-',
-            lower: true,
-            strict: true
-          });
-          const user_id = req.user ? req.user.id : undefined;
+          // Create the post using the post model
           const newPost = await Post.create({
             title,
             post_content,
-            user_id: req.user.id // Assuming you have a logged-in user and req.user contains the user information
           });
 
+          // Redirect to the dashboard after creating the post
           res.redirect('/dashboard');
         } catch (err) {
           next(err);

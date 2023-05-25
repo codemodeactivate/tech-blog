@@ -10,6 +10,7 @@ const categoryRoutes = require('./api/categoryRoutes');
 const commentRoutes = require('./api/commentRoutes');
 const homepageController = require('../controllers/homepageController');
 const dashboardController = require('../controllers/dashboardController');
+const postController = require('../controllers/postController');
 const signupRoutes = require('./signup');
 const dashboardRoutes = require('./dashboard');
 const loginRoutes = require('./login');
@@ -27,7 +28,7 @@ router.use('/comments', commentRoutes);
 router.use('/signup', signupRoutes);
 router.use('/new-post', newPostRoutes);
 //router.get('/dashboard', dashboardController.renderDashboard);
-router.post('/dashboard', dashboardController.createPost);
+router.post('/dashboard', postController.createPost);
 router.get('/', homepageController.renderHomepage);
 module.exports = router;
 // module.exports = {
