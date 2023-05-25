@@ -6,7 +6,7 @@ const postController = require('../controllers/postController');
 const withAuth = require('../utils/auth');
 
 router.use(bodyParser.urlencoded({ extended: false }));
-
+router.get('/new-post', postController.renderCreatePostForm);
 router.post('/', withAuth, postController.createPost);
 
 module.exports = router;
