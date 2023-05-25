@@ -15,7 +15,7 @@ const dashboardRoutes = require('./dashboard');
 const loginRoutes = require('./login');
 const newPostRoutes = require('./new-post');
 
-
+router.use('/login', loginRoutes);
 //router.get('/partials/nav', homepageController.renderNav);
 router.use('/dashboard', dashboardRoutes);
 router.use('/users', userRoutes);
@@ -25,15 +25,10 @@ router.use('/posts', postRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/comments', commentRoutes);
 router.use('/signup', signupRoutes);
-
-router.use('/login', loginRoutes);
 router.use('/new-post', newPostRoutes);
-
-router.get('/', homepageController.renderHomepage);
-
-router.get('/dashboard', dashboardController.renderDashboard);
+//router.get('/dashboard', dashboardController.renderDashboard);
 router.post('/dashboard', dashboardController.createPost);
-
+router.get('/', homepageController.renderHomepage);
 module.exports = router;
 // module.exports = {
 //     userRoutes: require('./userRoutes'),

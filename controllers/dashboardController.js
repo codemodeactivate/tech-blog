@@ -4,7 +4,7 @@ exports.renderDashboard = async (req, res, next) => {
     try {
         const posts = await Post.findAll();
         const plainPosts = posts.map((post) => post.get({ plain: true }));
-
+        console.log(plainPosts);
         res.render("dashboard", { posts: plainPosts });
     } catch (err) {
         next(err);
