@@ -6,7 +6,7 @@ exports.renderHomepage = async (req, res, next) => {
         const plainPosts = posts.map((post) => post.get({ plain: true }));
 
         // Render the dashboard page
-        res.render("dashboard", {
+        res.render("homepage", {
             isLoggedIn: req.session.logged_in,
             posts: plainPosts
         });
