@@ -5,7 +5,7 @@ module.exports = {
     //render create post page/form
     renderCreatePostForm: async (req, res, next) => {
         try {
-            res.render("new-post", {
+            res.render("partials/new-post", {
                 isLoggedIn: req.session.logged_in,
             });
         } catch (err) {

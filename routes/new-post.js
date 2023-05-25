@@ -5,8 +5,8 @@ const { Post } = require('../models');
 const postController = require('../controllers/postController');
 const withAuth = require('../utils/auth');
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.get('/new-post', withAuth, postController.renderCreatePostForm);
+//router.use(bodyParser.urlencoded({ extended: false }));
+router.get('/', withAuth, postController.renderCreatePostForm);
 router.post('/', withAuth, postController.createPost);
 
 module.exports = router;
