@@ -4,6 +4,8 @@ const router = express.Router();
 const withAuth = require('../utils/auth');
 const { Post } = require('../models');
 const dashboardController = require('../controllers/dashboardController');
+
+
 router.get('/', withAuth, dashboardController.renderDashboard);
 
 

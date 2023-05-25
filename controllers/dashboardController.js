@@ -16,20 +16,20 @@ exports.renderDashboard = async (req, res, next) => {
 
 
 
-exports.createPost = async (req, res, next) => {
-    try {
-      // Retrieve the post data from the request body
-      const { title, post_content } = req.body;
+// exports.createPost = async (req, res, next) => {
+//     try {
+//       // Retrieve the post data from the request body
+//       const { title, post_content } = req.body;
 
-      // Create the post using the post model
-      const newPost = await Post.create({
-        title,
-        post_content,
-      });
+//       // Create the post using the post model
+//       const newPost = await Post.create({
+//         title,
+//         post_content,
+//       });
 
-      // Redirect to the dashboard after creating the post
-      res.redirect('/dashboard');
-    } catch (err) {
-      next(err);
-    }
-  };
+//       // Redirect to the dashboard after creating the post
+//       res.redirect('/dashboard');
+//     } catch (err) {
+//       next(err);
+//     }
+//   };
