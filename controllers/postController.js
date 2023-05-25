@@ -36,17 +36,16 @@ module.exports = {
           const user_id = req.user ? req.user.id : undefined;
           const newPost = await Post.create({
             title,
-            post_url: slug,
-            slug,
             post_content,
             user_id: req.user.id // Assuming you have a logged-in user and req.user contains the user information
           });
 
-          res.json(newPost);
+          res.redirect('/dashboard');
         } catch (err) {
           next(err);
         }
       },
+
 
     updatePost: async (req, res, next) => {
         try {

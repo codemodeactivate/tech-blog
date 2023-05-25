@@ -4,7 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./routes');
 const helpers = require('./utils/helpers');
-
+const middleware = require('./middleware');
 // const userRoutes = require('./routes/api/userRoutes');
 // const tagRoutes = require('./routes/api/tagRoutes');
 //const routes = require('./controllers');
@@ -35,7 +35,7 @@ const sess = {
 };
 
 app.use(session(sess));
-
+app.use(middleware.auth.setUser);
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

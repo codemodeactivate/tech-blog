@@ -5,6 +5,6 @@ module.exports = {
     roleController: require('./roleController'),
     categoryController: require('./categoryController'),
     tagController: require('./tagController'),
-    permissionController: require('./permissionController')
-
+    permissionController: require('./permissionController'),
+    dashboardController: require('./dashboardController'),
   };
