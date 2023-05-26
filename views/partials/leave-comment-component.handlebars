@@ -1,0 +1,11 @@
+{{#each post.comments as |comment|}}
+<div class="card">
+    <p class="card-header"> commented by: {{comment.user.username}} on {{comment.created_at}}</p>
+    <p class="card-body"> {{comment.comment_text}} </p>
+</div>
+{{/each}}
+<label for="comment">Comment Below: </label><br>
+<textarea name="comment-content" id="comment" type="text" rows="5" cols="135"></textarea>
+<button id="leave-comment" class="btn btn-primary">Comment</button>
+
+<script src="/js/comments.js"></script>

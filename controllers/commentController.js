@@ -20,12 +20,22 @@ exports.getCommentById = async (req, res, next) => {
 
 exports.createComment = async (req, res, next) => {
     try {
-        const newComment = await Comment.create(req.body);
+        const { post_id, comment_text } = req.body;
+        if (!req.session.user) {
+            return res.status(401).json({ message: "No user is logged in" });
+        }
+        const user_id = req.session.user.id;
+        console.log("BODY" + { post_id, user_id, comment_text });
+        const newComment = await Comment.create({ post_id, user_id, comment_text });
+
         res.json(newComment);
     } catch (err) {
+        console.log(err.errors);
         next(err);
     }
 }
+
+
 
 exports.updateComment = async (req, res, next) => {
     try {
@@ -52,5 +62,3 @@ exports.deleteComment = async (req, res, next) => {
         next(err);
     }
 }
-
-

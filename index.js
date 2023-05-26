@@ -5,6 +5,8 @@ const exphbs = require('express-handlebars');
 const routes = require('./routes');
 const helpers = require('./utils/helpers');
 const middleware = require('./middleware');
+const Handlebars = require('handlebars');
+const moment = require('moment');
 // const userRoutes = require('./routes/api/userRoutes');
 // const tagRoutes = require('./routes/api/tagRoutes');
 //const routes = require('./controllers');
@@ -38,6 +40,10 @@ const sess = {
     db: sequelize
   })
 };
+
+Handlebars.registerHelper('formatDate', function(date, format) {
+  return moment(date).format(format);
+});
 
 app.use(session(sess));
 app.use(middleware.auth.setUser);

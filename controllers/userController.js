@@ -83,7 +83,12 @@ module.exports = {
                 });
                 return;
             }
-            req.session.user_id = user.id;
+            //req.session.user_id = user.id;
+            req.session.user = {
+                id: user.id,
+                username: user.username,
+                email: user.email,
+            }
             req.session.logged_in = true;
             res.redirect("/dashboard");
         } catch (err) {

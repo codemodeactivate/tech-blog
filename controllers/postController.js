@@ -49,6 +49,7 @@ module.exports = {
             }
 
             const post = postData.get({ plain: true });
+            console.log("HERE WE GO" + post);
 
             res.render('single-post', {
                 post,

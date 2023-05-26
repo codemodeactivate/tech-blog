@@ -1,5 +1,10 @@
 <div>
-    <div class="card">
+
+    {{>single-post-component}}
+
+    {{>comment-component}}
+
+    {{!-- <div class="card">
         <h2 class="card-header">Title - {{post.title}} </h2>
         <p class="card-header" name="post-id">{{post.id}}</p>
         <p class="card-header"> {{post.created_at}} </p>
@@ -7,8 +12,9 @@
         <p class="card-header"> {{post.user.username}} </p>
         {{/if}}
         <p class="card-body"> {{post.post_content}} </p>
-    </div>
-    {{#each post.comments as |comment|}}
+    </div> --}}
+    {{>leave-comment-component}}
+    {{!-- {{#each post.comments as |comment|}}
     <div class="card">
         <p class="card-header"> commented by: {{comment.user.username}} on {{comment.created_at}}</p>
         <p class="card-body"> {{comment.comment_text}} </p>
@@ -16,5 +22,5 @@
     {{/each}}
     <label for="comment">Share your thoughts:</label><br>
     <textarea name="comment-body" id="comment" type="text"  rows="5" cols="135"></textarea>
-    <button id="new-comment-form" class="btn btn-primary">Leave Comment</button>
+    <button id="new-comment-form" class="btn btn-primary">Leave Comment</button> --}}
 </div>
