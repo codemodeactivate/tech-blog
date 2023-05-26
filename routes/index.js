@@ -24,7 +24,7 @@ router.use('/dashboard', dashboardRoutes);
 router.use('/users', userRoutes);
 router.use('/tags', tagRoutes);
 router.use('/roles', roleRoutes);
-router.use('/posts', postRoutes);
+router.use('/post', postRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/comments', commentRoutes);
 router.use('/signup', signupRoutes);

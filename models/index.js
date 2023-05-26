@@ -17,11 +17,13 @@ Post.belongsToMany(Tag, {
 });
 
 Post.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    as: 'user'
 });
 
 User.hasMany(Post, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    as: 'posts'
 });
 
 Post.belongsToMany(Category, {
@@ -35,19 +37,23 @@ Category.belongsToMany(Post, {
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    as: 'user'
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    as: 'comments'
 });
 
 Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    as: 'post'
 });
 
 Post.hasMany(Comment, {
-    foreignKey: 'post_id'
+    foreignKey: 'post_id',
+    as: 'comments'
 });
 
 User.belongsToMany(Role, {

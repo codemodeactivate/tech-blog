@@ -1,4 +1,4 @@
-const { Post } = require("../models");
+const { User, Post, Comment } = require('../models');
 const slugify = require("slugify");
 
 module.exports = {
@@ -24,12 +24,42 @@ module.exports = {
 
     getPostById: async (req, res, next) => {
         try {
-            const post = await Post.findByPk(req.params.id);
-            res.json(post);
+            const postData = await Post.findByPk(req.params.id, {
+                include: [
+                    {
+                        model: User,
+                        as: 'user',
+                        attributes: ['username']
+                    },
+                    {
+                        model: Comment,
+                        as: 'comments',
+                        include: {
+                            model: User,
+                            as: 'user',
+                            attributes: ['username']
+                        }
+                    }
+                ]
+            });
+
+            if (!postData) {
+                res.status(404).json({ message: 'No post found with this id!' });
+                return;
+            }
+
+            const post = postData.get({ plain: true });
+
+            res.render('single-post', {
+                post,
+                loggedIn: req.session.loggedIn === true,
+                username: req.session.username
+            });
         } catch (err) {
             next(err);
         }
-    },
+      },
+
 
     createPost: async (req, res, next) => {
         try {
