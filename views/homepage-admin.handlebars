@@ -5,8 +5,8 @@
 
 {{#each posts as |post|}}
 
-    <a href="/post/{{post.id}}">
-
+    <a href="/edit-post/{{post.id}}">
+    {{#if isLoggedIn}}
       <div id="blog-post-id">
         <h2>{{post.title}}</h2>
         <p>{{post.post_content}}</p>
@@ -17,5 +17,5 @@
       <h2>{{post.title}}</h2>
       <p>{{post.post_content}}</p>
     </div>
-
+  {{/if}}
 {{/each}}

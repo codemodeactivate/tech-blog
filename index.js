@@ -20,7 +20,8 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({
   defaultLayout: 'main',
   helpers: helpers,
-  partialsDir: 'views/partials/'
+  partialsDir: 'views/partials/',
+  layoutsDir: 'views/layouts/'
 });
 
 const sess = {
