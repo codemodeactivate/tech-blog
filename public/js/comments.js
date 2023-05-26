@@ -6,7 +6,7 @@ leaveComment.addEventListener('click', async (event) => {
     const post_id = document.querySelector('p[name="post-id"]').textContent;
     const comment_text = document.querySelector('textarea[name="comment-content"]').value.trim();
     //const user_id = req.session.user.user_id;
-
+    //console.log(post_id, )
     if (comment_text) {
         const response = await fetch('/api/comments', {
             method: 'POST',

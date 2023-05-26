@@ -1,7 +1,7 @@
 <div>
     <div class="card">
         <h2 class="">{{post.title}} </h2>
-        <p class="" name="post-id">Post ID - {{post.id}}</p>
+        <p class="" name="post-id" data-postid="{{post.id}}">{{post.id}}</p>
         <p class="">Created: {{formatDate post.createdAt 'MM/DD/YY'}} </p>
         {{#if post.user.username}}
         <p class=""> By: {{post.user.username}} </p>

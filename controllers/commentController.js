@@ -25,12 +25,12 @@ exports.createComment = async (req, res, next) => {
             return res.status(401).json({ message: "No user is logged in" });
         }
         const user_id = req.session.user.id;
-        console.log("BODY" + { post_id, user_id, comment_text });
+        console.log("TUTOR" + post_id, user_id, comment_text);
         const newComment = await Comment.create({ post_id, user_id, comment_text });
 
         res.json(newComment);
     } catch (err) {
-        console.log(err.errors);
+        //console.log(err.errors);
         next(err);
     }
 }
