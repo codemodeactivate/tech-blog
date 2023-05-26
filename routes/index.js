@@ -30,8 +30,10 @@ router.use('/comments', commentRoutes);
 router.use('/signup', signupRoutes);
 router.use('/logout', logoutRoutes);
 
+
 //router.get('/dashboard', dashboardController.renderDashboard);
 router.post('/dashboard', postController.createPost);
+router.get('/post/:id', postController.renderPost);
 router.get('/', homepageController.renderHomepage);
 module.exports = router;
 // module.exports = {

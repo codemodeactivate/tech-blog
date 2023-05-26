@@ -74,4 +74,12 @@ module.exports = {
             next(err);
         }
     },
+    renderPost: async (req, res, next) => {
+        try {
+            const post = await Post.findByPk(req.params.id);
+            res.render('single-post', { post });
+        } catch (err) {
+            next(err);
+        }
+    },
 };
