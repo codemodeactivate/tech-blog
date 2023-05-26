@@ -86,7 +86,7 @@ module.exports = {
     },
     logout: async (req, res) => {
       if (req.session) {
-          // Delete session object
+          // Delete session object. If we don't, page gets rerendered but cache doesn't care and the user still appears logged in if you look at the nav links
           req.session.destroy(function(err) {
               if(err) {
                   return res.status(500).json(err);
