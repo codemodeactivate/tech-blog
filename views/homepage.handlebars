@@ -4,8 +4,9 @@
 <h2>Logged In: {{isLoggedIn}}</h2>
 
 {{#each posts as |post|}}
-  {{#if isLoggedIn}}
-    <a href="/edit-post/{{post.id}}">
+
+    <a href="/edit-post/">
+    {{#if isLoggedIn}}
       <div id="blog-post-id">
         <h2>{{post.title}}</h2>
         <p>{{post.post_content}}</p>
