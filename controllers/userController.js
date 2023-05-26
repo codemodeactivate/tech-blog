@@ -84,4 +84,16 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    logout: async (req, res) => {
+      if (req.session) {
+          // Delete session object
+          req.session.destroy(function(err) {
+              if(err) {
+                  return res.status(500).json(err);
+              } else {
+                  return res.redirect('/');
+              }
+          });
+      }
+  }
   };

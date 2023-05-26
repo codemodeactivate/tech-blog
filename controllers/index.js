@@ -8,4 +8,5 @@ module.exports = {
     permissionController: require('./permissionController'),
     dashboardController: require('./dashboardController'),
     homepageController: require('./homepageController'),
+    logoutController: require('./userController'),
   };

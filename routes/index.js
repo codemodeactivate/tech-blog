@@ -15,6 +15,7 @@ const signupRoutes = require('./signup');
 const dashboardRoutes = require('./dashboard');
 const loginRoutes = require('./login');
 const newPostRoutes = require('./new-post');
+const logoutRoutes = require('./logout');
 
 router.use('/login', loginRoutes);
 router.use('/new-post', newPostRoutes);
@@ -27,6 +28,7 @@ router.use('/posts', postRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/comments', commentRoutes);
 router.use('/signup', signupRoutes);
+router.use('/logout', logoutRoutes);
 
 //router.get('/dashboard', dashboardController.renderDashboard);
 router.post('/dashboard', postController.createPost);

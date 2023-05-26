@@ -1,11 +1,11 @@
 {{>nav-component}}
-<h1>Welcome to the Homepage</h1>
+<h1>ADMIN HOMEPAGE</h1>
 
 <h2>Logged In: {{isLoggedIn}}</h2>
 
 {{#each posts as |post|}}
 
-    <a href="/edit-post/{{post.id}}">
+    <a href="/post/{{post.id}}">
     {{#if isLoggedIn}}
       <div id="blog-post-id">
         <h2>{{post.title}}</h2>
