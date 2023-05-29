@@ -35,6 +35,9 @@ router.use('/logout', logoutRoutes);
 router.post('/posts', postController.createPost);
 router.get('/post/:id', postController.renderPost);
 router.get('/', homepageController.renderHomepage);
+router.get('/posts/edit/:id', postController.renderEditPost);
+router.post('/posts/:id', postController.updatePost);
+
 module.exports = router;
 // module.exports = {
 //     userRoutes: require('./userRoutes'),

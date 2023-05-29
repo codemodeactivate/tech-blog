@@ -87,7 +87,8 @@ module.exports = {
                     id: req.params.id,
                 },
             });
-            res.json(updatedPost);
+            //res.json(updatedPost);
+            res.redirect("/dashboard");
         } catch (err) {
             next(err);
         }
@@ -113,4 +114,27 @@ module.exports = {
             next(err);
         }
     },
+
+    renderEditPost: async (req, res, next) => {
+        try {
+            const postData = await Post.findByPk(req.params.id);
+
+            if (!postData) {
+                res.status(404).json({
+                    message: 'No post found with this id!'
+                });
+                return;
+            }
+
+            const post = postData.get({ plain: true });
+
+            res.render('partials/edit-post-component', {
+                post,
+                loggedIn: req.session.loggedIn === true,
+                username: req.session.username
+            });
+        } catch (err) {
+            next(err);
+        }
+    }
 };
