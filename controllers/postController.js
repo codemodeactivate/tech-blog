@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize');
 const { User, Post, Comment } = require('../models');
 const slugify = require("slugify");
 
@@ -82,13 +83,17 @@ module.exports = {
 
     updatePost: async (req, res, next) => {
         try {
-            const updatedPost = await Post.update(req.body, {
-                where: {
-                    id: req.params.id,
-                },
-            });
-            //res.json(updatedPost);
-            res.redirect("/dashboard");
+            const { title, post_content } = req.body;
+            const { id } = req.params;
+
+            await Post.update(
+                { title, post_content, edited_at: Sequelize.literal('CURRENT_TIMESTAMP') },
+                { where: { id } }
+            );
+
+            const updatedPost = await Post.findByPk(id);
+
+            res.json(updatedPost);
         } catch (err) {
             next(err);
         }

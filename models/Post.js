@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 const { URL } = require('url');
 
@@ -28,7 +28,11 @@ Post.init(
                 model: 'user',
                 key: 'id'
             }
-        }
+        },
+        edited_at: {
+            type: DataTypes.DATE,
+            defaultValue: Sequelize.NOW
+        },
     },
     {
         sequelize,
