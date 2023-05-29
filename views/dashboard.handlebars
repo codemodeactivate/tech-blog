@@ -7,7 +7,7 @@
         <h1 class="mb-0">ADMIN Dashboard</h1>
         <a href="/new-post" alt="new post" class="btn btn-primary">New Post</a>
     </div>
-
+    <div id="post-container">
     {{#each posts as |post|}}
     <div id="post-{{post.id}}" class="card mt-3">
         <div class="card-body">
@@ -19,6 +19,6 @@
     </div>
     {{/each}}
 </div>
-
+</div>
 {{>new-post-component}}
 <script defer src="/js/admin.js" defer></script>

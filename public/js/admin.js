@@ -36,6 +36,7 @@ editButtons.forEach(button => {
           </div>
         </div>
       </div>
+
       `;
 
       const form = document.getElementById(`edit-form-${postId}`);
