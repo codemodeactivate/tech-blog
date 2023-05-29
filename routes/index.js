@@ -32,7 +32,7 @@ router.use('/logout', logoutRoutes);
 
 
 //router.get('/dashboard', dashboardController.renderDashboard);
-router.post('/dashboard', postController.createPost);
+router.post('/posts', postController.createPost);
 router.get('/post/:id', postController.renderPost);
 router.get('/', homepageController.renderHomepage);
 module.exports = router;
