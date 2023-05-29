@@ -10,11 +10,32 @@ editButtons.forEach(button => {
       const postContent = postElement.querySelector('p').textContent;
 
       postElement.innerHTML = `
-          <form id="edit-form-${postId}">
-              <input type="text" name="title" value="${postTitle}" required>
-              <textarea name="post_content">${postContent}</textarea>
-              <button type="submit">Update Post</button>
-          </form>
+
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow">
+              <div class="card-body">
+                <h1 class="text-center mb-4">Edit Post</h1>
+                <form id="edit-form-${postId}">
+
+                  <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" value="${postTitle}" required class="form-control">
+                  </div>
+                  <div class="mb-3">
+                    <label for="post_content" class="form-label">Post Content</label>
+                    <textarea name="post_content" required class="form-control">${postContent}</textarea>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Update Post</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       `;
 
       const form = document.getElementById(`edit-form-${postId}`);
@@ -55,7 +76,7 @@ editButtons.forEach(button => {
 
 deleteButtons.forEach(button => {
   button.addEventListener('click', async (event) => {
-    
+
     const id = event.target.getAttribute('data-id');
     // Send a DELETE request to the server
     const response = await fetch(`/post/${id}`, {
