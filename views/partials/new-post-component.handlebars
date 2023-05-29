@@ -1,8 +1,22 @@
-<!-- New Post Handlebars Component -->
-
-<h1>New Post</h1>
-<form action="/posts" method="POST">
-    <input type="text" name="title" placeholder="Title" required>
-    <textarea name="post_content" placeholder="Body" required></textarea>
-    <button type="submit">New Post</button>
-</form>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h1 class="text-center mb-4">New Post</h1>
+          <form action="/posts" method="POST">
+            <div class="mb-3">
+              <input type="text" name="title" placeholder="Title" required class="form-control">
+            </div>
+            <div class="mb-3">
+              <textarea name="post_content" placeholder="Body" required class="form-control"></textarea>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">New Post</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

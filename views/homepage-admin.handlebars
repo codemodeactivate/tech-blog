@@ -1,21 +1,34 @@
 {{>nav-component}}
-<h1>ADMIN HOMEPAGE</h1>
 
-<h2>Logged In: {{isLoggedIn}}</h2>
 
+
+<div class="container mt-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="mb-0">ADMIN HOMEPAGE</h1>
+    </div>
+<div id="post-container">
 {{#each posts as |post|}}
 
-    <a href="/post/{{post.id}}">
+    <a href="/post/{{post.id}}" class="card mt-3 post-link">
+
     {{#if isLoggedIn}}
+    <div class="card-body">
       <div id="blog-post-id">
         <h2>{{post.title}}</h2>
         <p>{{post.post_content}}</p>
       </div>
     </a>
+    </div>
   {{else}}
-    <div id="blog-post-id">
-      <h2>{{post.title}}</h2>
-      <p>{{post.post_content}}</p>
+    <div class="card-body">
+      <div id="blog-post-id">
+        <h2>{{post.title}}</h2>
+        <p>{{post.post_content}}</p>
+      </div>
+    </a>
     </div>
   {{/if}}
 {{/each}}
+</div>
+</div>
+<script defer src="/js/admin.js" defer></script>
