@@ -33,10 +33,12 @@ router.use('/logout', logoutRoutes);
 
 //router.get('/dashboard', dashboardController.renderDashboard);
 router.post('/posts', postController.createPost);
-router.get('/post/:id', postController.renderPost);
-router.get('/', homepageController.renderHomepage);
 router.get('/posts/edit/:id', postController.renderEditPost);
 router.post('/posts/:id', postController.updatePost);
+router.get('/posts/delete/:id', postController.deletePost);
+//router.get('/post/:id', postController.renderPost);
+router.get('/', homepageController.renderHomepage);
+
 
 module.exports = router;
 // module.exports = {

@@ -12,18 +12,22 @@ const sequelize = require('../config/connection');
 
 
 const seedAll = async () => {
-  await sequelize.sync({ force: true });
+  try {
+    await sequelize.sync({ force: true });
 
-  await seedUsers();
-  await seedTags();
-  await seedPosts();
-  await seedRoles();
-  await seedPermissions();
-  await seedComments();
-  await seedCategories();
+    await seedUsers();
+    await seedTags();
+    await seedPosts();
+    await seedRoles();
+    await seedPermissions();
+    await seedComments();
+    await seedCategories();
 
-
-  process.exit(0);
+    process.exit(0);
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
 };
 
 seedAll();

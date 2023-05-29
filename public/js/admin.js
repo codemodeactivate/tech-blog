@@ -55,9 +55,10 @@ editButtons.forEach(button => {
 
 deleteButtons.forEach(button => {
   button.addEventListener('click', async (event) => {
+    
     const id = event.target.getAttribute('data-id');
     // Send a DELETE request to the server
-    const response = await fetch(`/posts/${id}`, {
+    const response = await fetch(`/post/${id}`, {
       method: 'DELETE',
     });
 

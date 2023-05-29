@@ -100,25 +100,22 @@ module.exports = {
     },
 
     deletePost: async (req, res, next) => {
+        console.log("deletePost called, id =", req.params.id);
         try {
             await Post.destroy({
                 where: {
                     id: req.params.id,
                 },
             });
+            console.log("DELETE command executed");
             res.json({ message: "Post deleted successfully." });
+            console.log("Response sent");
         } catch (err) {
+            console.log("Error caught:", err);
             next(err);
         }
     },
-    renderPost: async (req, res, next) => {
-        try {
-            const post = await Post.findByPk(req.params.id);
-            res.render('single-post', { post });
-        } catch (err) {
-            next(err);
-        }
-    },
+
 
     renderEditPost: async (req, res, next) => {
         try {
