@@ -10,6 +10,7 @@ const moment = require('moment');
 // const userRoutes = require('./routes/api/userRoutes');
 // const tagRoutes = require('./routes/api/tagRoutes');
 //const routes = require('./controllers');
+const dotenv = require('dotenv').config();
 
 const sequelize = require('./config/connection');
 
@@ -27,7 +28,7 @@ const hbs = exphbs.create({
 });
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SECRET,
   cookie: {
     maxAge: 9999999999,
     httpOnly: true,
