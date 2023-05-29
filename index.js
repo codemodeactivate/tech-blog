@@ -28,7 +28,7 @@ const hbs = exphbs.create({
 });
 
 const sess = {
-  secret: 'I like swiss cheese',
+  secret: process.env.SECRET,
   cookie: {
     maxAge: 9999999999,
     httpOnly: true,

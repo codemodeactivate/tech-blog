@@ -18,8 +18,9 @@
 This was one I was very excited to work on because it was a full stack project with no starter code. I plan on coming back to this and making it fully functional with categories, tags, user permissions, etc. and incorporating it into my actual portfolio page, not just as a project OF my portfolio.
 
 # Demo
-![Demo](./assets/demo.gif)
-Deployed Application: 
+[Live Link](https://jz-tech-blog.herokuapp.com/)
+![Demo](./assets/img/screenshot.png)
+
   ## Installation
   Clone it or fork it and then make sure to install node and dependencies:
 
